@@ -1,0 +1,25 @@
+<div class="background-image">
+
+</div>
+
+<div class="card seach-card" style="left:37%; width:25rem">
+    <div class="card-body p-4 bg-dark">
+        <div class="text-white text-center border-bottom">
+            <h4>Login</h4>
+        </div>
+        <div>
+            <div class="text-white my-3">
+                <label for="">Username *</label>
+                <input type="text" class="form-control" [(ngModel)]="loginData.name">
+            </div>
+            <div class="text-white my-2">
+                <label for="">Password *</label>
+                <input type="password" class="form-control" [(ngModel)]="loginData.password">
+            </div>
+            <div class="d-grid mt-4 gap-3">
+                <button class="btn btn-primary text-white float-start" type="button" (click)="login()"><b>Login</b></button>
+                <button class="btn btn-primary text-white float-end" type="button" (click)="navigateToSignup()"><b>Sign up</b></button>
+            </div>
+        </div>
+    </div>
+</div>

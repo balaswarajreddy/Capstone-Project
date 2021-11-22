@@ -1,0 +1,77 @@
+<div class="background-image">
+
+</div>
+<div class="card seach-card">
+    <div class="card-body p-4 bg-dark">
+        <div class="d-flex text-white">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" [value]="1" [(ngModel)]="journeyType" (change)="journeyTypeChange(1)">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    One way
+                </label>
+            </div>
+            <div class="form-check mx-4">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" [value]="2" [(ngModel)]="journeyType" (change)="journeyTypeChange(2)">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Round trip
+                </label>
+            </div>
+        </div>
+        <div class="row text-white">
+            <div class="col-6">
+                <label for="">From</label>
+                <input type="text" name="" id="" class="form-control" [(ngModel)]="searchTermDeparture" (keyup)="searchDeparture()">
+                <div *ngIf="departureResults.length > 0" class="searchResults text-black border border-black">
+                    <div *ngFor="let results of departureResults" class="border-bottom border-dark">
+                        <button class="btn" (click)="selectedDeparture(results)">
+                            {{results.airportName}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <label for="">To</label>
+                <input type="text" name="" id="" class="form-control" [(ngModel)]="searchTermDestination" (keyup)="searchDestination()">
+                <div *ngIf="destinationResults.length > 0" class="searchResults text-black border border-black">
+                    <div *ngFor="let results of destinationResults" class="border-bottom border-dark">
+                        <button class="btn" (click)="selectedDestination(results)">
+                            {{results.airportName}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-3 text-white">
+            <div class="col-6">
+                <label for="">Departure on</label>
+                <input type="date" class="form-control"/>
+            </div>
+            <div class="col-6" *ngIf="journeyType === 2">
+                <label for="">Return on</label>
+                <input type="date" class="form-control"/>
+            </div>
+        </div>
+        <div class="row my-3 text-white">
+            <div class="col-6">
+                <label for="">Choose Class</label>
+                <select name="" id="" class="form-control">
+                    <option value="" selected>Choose class</option>
+                    <option value="1">Economy</option>
+                    <option value="2">Business</option>
+                    <option value="3">FirstClass</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label for="">Number of Adults</label>
+                <input type="number" class="form-control">
+            </div>
+            <div class="col-3">
+                <label for="">Number of kids</label>
+                <input type="number" class="form-control">
+            </div>
+        </div>
+        <div class="d-grid mt-4">
+            <button class="btn btn-warning text-white capitalize fs-5" type="button"><b>Search flights</b></button>
+        </div>
+    </div>
+</div>

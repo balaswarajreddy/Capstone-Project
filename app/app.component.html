@@ -1,0 +1,47 @@
+<div>
+  <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Flamingo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end gap-1" id="navbarSupportedContent">
+        <div>
+          <button class="btn text-white">
+            About us
+          </button>
+        </div>
+        <div>
+          <button class="btn text-white">
+            Contact us
+          </button>
+        </div>
+        <div>
+          <button class="btn text-white d-flex" title="login" (click)="signOutRequired = !signOutRequired">
+            <i class="fas fa-user-circle fs-4"></i>
+          </button>
+          <div class="bg-white signout-dropdown" *ngIf="signOutRequired && !sharedService.userName">
+            <button class="btn btn-primary btn-sm" (click)="redirectToSignup()"> 
+              sign up
+            </button>
+            <button class="btn btn-primary btn-sm ms-2" (click)="redirectToLogin()"> 
+              login
+            </button>
+          </div>
+          <div class="bg-white signout-dropdown" *ngIf="signOutRequired && sharedService.userName">
+              <div style="padding:1rem; text-transform: capitalize; font-size: 20px; font-weight: 700;">
+                {{sharedService.userName}}
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-primary btn-sm ms-2" (click)="logOut()"> 
+                  logout
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <p-toast></p-toast>
+  <router-outlet></router-outlet>
+</div>
