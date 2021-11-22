@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+.background-image {
+    background-image: url("../src/assets/flight-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    opacity: 0.5;
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+}
+
+.seach-card {
+    position: absolute;
+    opacity: 1;
+    top: 20%;
+    left: 2%;
+    width: 45rem;
+}
